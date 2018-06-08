@@ -3,30 +3,34 @@ import { render } from 'react-dom';
 
 const Context = React.createContext();
 
-function Parent ({ name }) {
+function Parent () {
   return (
     <div>
       <h1>Parent</h1>
-      <Child name={name}/>
+      <Child/>
     </div>
   );
 }
 
-function Child ({ name }) {
+function Child () {
   return (
     <div>
       <h1>Child</h1>
-      <Grandchild name={name}/>
+      <Grandchild/>
     </div>
   );
 }
 
-function Grandchild ({ name }) {
+function Grandchild () {
   return (
-    <div>
-      <h1>Grandchild</h1>
-      <h3>Name: {name}</h3>
-    </div>
+    <Context.Consumer>
+      {(name) => (
+      <div>
+        <h1>Grandchild</h1>
+        <h3>Name: {name}</h3>
+      </div>
+      )}
+    </Context.Consumer>
   );
 }
 
