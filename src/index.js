@@ -33,7 +33,7 @@ class App extends React.Component {
     const name = 'Tyler';
 
     return (
-      <Parent />
+      <Parent name={name}/>
     );
   }
 }
