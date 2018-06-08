@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+const Context = React.createContext();
+
 function Parent ({ name }) {
   return (
     <div>
@@ -33,7 +35,9 @@ class App extends React.Component {
     const name = 'Tyler';
 
     return (
-      <Parent name={name}/>
+      <Context.Provider value={name}>
+        <Parent />
+      </Context.Provider>
     );
   }
 }
